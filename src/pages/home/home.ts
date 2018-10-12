@@ -32,7 +32,7 @@ export class HomePage {
      * Subscribe to the observer created above to update the score
      */
     this.scoreUpdate.subscribe((num) => {
-      this.moleHoles.push(num);
+      this.score ++;
     })
 
     for(let i = 0; i<9; i++) {
