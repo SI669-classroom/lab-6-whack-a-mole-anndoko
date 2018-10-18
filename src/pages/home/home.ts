@@ -15,23 +15,16 @@ export class HomePage {
   gameTimer: any;
   timeLeft: number = 0;
   timerObserver: any;
-  scoreUpdate: any;
   scoreObserver: any;
   score: 0;
 
   constructor(public navCtrl: NavController) {
 
-    /**
-     * Create an observer to be passed to the new MoleHoles
-     */
-    this.scoreUpdate = Observable.create(observer => {
+    let scoreUpdate = Observable.create(observer => {
       this.scoreObserver = observer;
     });
 
-    /**
-     * Subscribe to the observer created above to update the score
-     */
-    this.scoreUpdate.subscribe((num) => {
+    scoreUpdate.subscribe(() => {
       this.score ++;
     })
 

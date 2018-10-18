@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { DataProvider } from '../../provider/data/data';
-import { Storage } from '@ionic/storage';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams, Platform } from "ionic-angular";
+import { DataProvider } from "../../provider/data/data";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the LeaderboardPage page.
@@ -12,8 +12,8 @@ import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
-  selector: 'page-leaderboard',
-  templateUrl: 'leaderboard.html',
+  selector: "page-leaderboard",
+  templateUrl: "leaderboard.html",
 })
 export class LeaderboardPage {
 
@@ -26,13 +26,12 @@ export class LeaderboardPage {
     public storage: Storage,
     public platform: Platform) {
 
-    this.score = this.navParams.get('score');
+    this.score = this.navParams.get("score");
   }
 
   ngOnInit () {
-
     this.platform.ready().then(() => {
-      this.storage.get("score").then((result) => {
+      this.storage.get("leaderboard").then((result) => {
         let res;
         if(!result) {
           res = []
@@ -55,7 +54,7 @@ export class LeaderboardPage {
           }
         })
 
-        this.storage.set('leaderboard', JSON.stringify(res));
+        this.storage.set("leaderboard", JSON.stringify(res));
       })
     })
   }
